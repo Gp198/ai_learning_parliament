@@ -1,0 +1,21 @@
+{
+  "status": "APPROVED",
+  "candidate": "Candidate Profile\n\nCurrent Role: Infrastructure Project Manager\nTarget Role: AI Transformation Lead\nCurrent Certification: AI-900\nTarget Certification: AI-102\nPractice Score: 82%\nStudy Hours Per Week: 8\nMeeting Hours Per Week: 10\nWorkload: Medium\nManager Goal: Accelerate AI solution delivery\nTeam Goal: Build internal AI engineering capability\n\nAssessment Results:\n- Prompt Engineering: 82%\n- Responsible AI: 86%\n- Azure AI Search: 80%\n- AI Agents: 78%\n- Azure OpenAI: 84%\n- Computer Vision: 81%\n\nQuestion:\nShould AI-102 be pursued now? Run the full AI Learning Parliament process using only internal knowledge base sources.\n",
+  "result": {
+    "started_at": "2026-06-14T21:48:40.296406",
+    "finished_at": "2026-06-14T21:48:57.294364",
+    "stakeholders": {
+      "Manager-Agent": "Position: Support\n\nConfidence: 98/100\n\nOne Evidence: AI-102 directly supports AI solution delivery acceleration and internal AI engineering capability with moderate workload, sufficient study hours, and low meeting friction.\n\nSources:\n\n* manager-goals-ai-delivery.md\n* capacity-framework.md",
+      "Career-Growth-Agent": "Position: Support  \nConfidence: 100/100  \nOne Evidence: AI-102 supports practical AI solution understanding, Azure AI implementation knowledge and credibility in AI delivery conversations for AI Transformation Lead.  \nSources:  \n* career-growth-framework.md  \n* certification-role-mapping.md",
+      "Readiness-Agent": "Position: Support\n\nConfidence: 95/100\n\nOne Evidence: Practice score is 82%, above the AI-102 target readiness score of 80%; all weak topics are manageable.\n\nSources:\n\n* assessment-framework.md\n* ai102-overview.md",
+      "Capacity-Agent": "Position: Support\n\nConfidence: 95/100\n\nOne Evidence: Study capacity is moderate (8 hours/week) and meeting load is low (10 hours/week), supporting feasible study plan for AI-102.\n\nSources:\n\n* capacity-framework.md",
+      "Future-Skills-Agent": "Position: Support\n\nConfidence: 100/100\n\nOne Evidence: AI-102 develops Azure AI implementation skills, AI solution design capability and responsible AI understanding, supporting future AI engineering and transformation roles.\n\nSources:\n\n* future-skills-analysis.md\n* certification-role-mapping.md"
+    },
+    "critic": "Critic Verdict: Proceed\n\nConfidence: 98/100\n\nOne Finding: Stakeholder evidence is consistent, well-grounded, and covers readiness, capacity, career alignment, and future skills; no major contradictions or risks identified.\n\nSources:\n\n* manager-goals-ai-delivery.md\n* assessment-framework.md",
+    "speaker": "# AI Learning Parliament Decision\n\nEvidence Coverage: Complete\n\nParliament Outcome\n\nSupport: 5\n\nConditional Support: 0\n\nOppose: 0\n\nFinal Decision: Start Now\n\nDecision Confidence: High\n\nCritic Impact:\n\nInitial Outcome: All stakeholders supported immediate pursuit of AI-102.\nCritic Verdict: Proceed\nFinal Outcome: Start Now\n\nReason:\n\n1. All stakeholders unanimously support AI-102, citing alignment with manager goals, career growth, readiness, capacity, and future skills.\n2. Practice score and study capacity meet or exceed requirements, with no major risks or contradictions identified.\n3. Critic confirms evidence is consistent, well-grounded, and covers all required domains.\n\nRecommended Plan: Insufficient Data\n\nSources:\n\n* manager-goals-ai-delivery.md\n* assessment-framework.md\n* certification-role-mapping.md\n\nHuman Approval Required:\n\nReply APPROVE to generate the approved learning plan.\n\nReply REQUEST_CHANGES to revise the recommendation."
+  },
+  "created_by": [
+    "Gonçalo Pedro",
+    "André Collares Rodrigues"
+  ]
+}

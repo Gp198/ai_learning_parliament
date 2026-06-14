@@ -1,0 +1,118 @@
+kind: workflow
+trigger:
+  kind: OnConversationStart
+  id: trigger_wf
+  actions:
+    - kind: SetVariable
+      id: set_user_proposal
+      variable: Local.UserProposal
+      value: =System.LastMessageText
+    - kind: InvokeAzureAgent
+      id: Manager-Agent
+      description: Invokes the Manager Agent
+      conversationId: =System.ConversationId
+      agent:
+        name: Manager-Agent
+      input:
+        messages: =UserMessage(Local.UserProposal)
+      output:
+        messages: Local.ManagerResponse
+        autoSend: false
+    - kind: InvokeAzureAgent
+      id: Career-Growth-Agent
+      description: Invokes the Career Growth Agent
+      conversationId: =System.ConversationId
+      agent:
+        name: Career-Growth-Agent
+      input:
+        messages: =UserMessage(Local.UserProposal)
+      output:
+        messages: Local.CareerGrowthResponse
+        autoSend: false
+    - kind: InvokeAzureAgent
+      id: Readiness-Agent
+      description: Invokes the Readiness Agent
+      conversationId: =System.ConversationId
+      agent:
+        name: Readiness-Agent
+      input:
+        messages: =UserMessage(Local.UserProposal)
+      output:
+        messages: Local.ReadinessResponse
+        autoSend: false
+    - kind: InvokeAzureAgent
+      id: Capacity-Agent
+      description: Invokes the Capacity Agent
+      conversationId: =System.ConversationId
+      agent:
+        name: Capacity-Agent
+      input:
+        messages: =UserMessage(Local.UserProposal)
+      output:
+        messages: Local.CapacityResponse
+        autoSend: false
+    - kind: InvokeAzureAgent
+      id: Future-Skills-Agent
+      description: Invokes the Future Skills Agent
+      conversationId: =System.ConversationId
+      agent:
+        name: Future-Skills-Agent
+      input:
+        messages: =UserMessage(Local.UserProposal)
+      output:
+        messages: Local.FutureSkillsResponse
+        autoSend: false
+    - kind: SetVariable
+      id: set_critic_input
+      variable: Local.CriticInput
+      value: |-
+        =Concatenate(
+          "Proposal:", Char(10), Local.UserProposal, Char(10), Char(10),
+          "Manager Agent Response:", Char(10), Concat(ShowColumns(Local.ManagerResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Career Growth Agent Response:", Char(10), Concat(ShowColumns(Local.CareerGrowthResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Readiness Agent Response:", Char(10), Concat(ShowColumns(Local.ReadinessResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Capacity Agent Response:", Char(10), Concat(ShowColumns(Local.CapacityResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Future Skills Agent Response:", Char(10), Concat(ShowColumns(Local.FutureSkillsResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Validate stakeholder outputs and provide the Critic verdict."
+        )
+    - kind: InvokeAzureAgent
+      id: Critic-Agent
+      description: Invokes the Critic Agent
+      conversationId: =System.ConversationId
+      agent:
+        name: Critic-Agent
+      input:
+        messages: =UserMessage(Local.CriticInput)
+      output:
+        messages: Local.CriticResponse
+        autoSend: false
+    - kind: SetVariable
+      id: set_speaker_input
+      variable: Local.SpeakerInput
+      value: |-
+        =Concatenate(
+          "Proposal:", Char(10), Local.UserProposal, Char(10), Char(10),
+          "Manager Agent Response:", Char(10), Concat(ShowColumns(Local.ManagerResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Career Growth Agent Response:", Char(10), Concat(ShowColumns(Local.CareerGrowthResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Readiness Agent Response:", Char(10), Concat(ShowColumns(Local.ReadinessResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Capacity Agent Response:", Char(10), Concat(ShowColumns(Local.CapacityResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Future Skills Agent Response:", Char(10), Concat(ShowColumns(Local.FutureSkillsResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Critic Agent Response:", Char(10), Concat(ShowColumns(Local.CriticResponse, Text), Text, Char(10)), Char(10), Char(10),
+          "Generate the final AI Learning Parliament Decision using only stakeholder outputs and Critic verdict above."
+        )
+    - kind: InvokeAzureAgent
+      id: speaker_agent
+      description: Invokes the Speaker Agent
+      conversationId: =System.ConversationId
+      agent:
+        name: Speaker-Agent
+      input:
+        messages: =UserMessage(Local.SpeakerInput)
+      output:
+        messages: Local.FinalReport
+        autoSend: true
+    - kind: EndConversation
+      id: end_workflow
+id: ai_learning_parliament_workflow
+name: AI-Learning-Parliament
+description: AI Learning Parliament workflow using Manager, Career Growth, Readiness, Capacity, Future Skills, Critic and Speaker agents.
