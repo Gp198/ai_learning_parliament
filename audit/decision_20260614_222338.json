@@ -1,0 +1,34 @@
+{
+  "status": "APPROVED",
+  "approved_plan": {
+    "approval_status": "APPROVED",
+    "approved_at_utc": "2026-06-14T22:23:38.360940",
+    "approved_by": "Human Reviewer",
+    "created_by": [
+      "Gonçalo Pedro",
+      "André Collares Rodrigues"
+    ],
+    "final_decision": "Start Now",
+    "decision_confidence": "High",
+    "recommended_plan": "ai102-medium-8h",
+    "candidate_context": "Candidate Profile\n\nCurrent Role: Infrastructure Project Manager\nTarget Role: AI Transformation Lead\nCurrent Certification: AI-900\nTarget Certification: AI-102\nPractice Score: 82%\nStudy Hours Per Week: 8\nMeeting Hours Per Week: 10\nWorkload: Medium\nManager Goal: Accelerate AI solution delivery\nTeam Goal: Build internal AI engineering capability\n\nAssessment Results:\n- Prompt Engineering: 82%\n- Responsible AI: 86%\n- Azure AI Search: 80%\n- AI Agents: 78%\n- Azure OpenAI: 84%\n- Computer Vision: 81%\n\nQuestion:\nShould AI-102 be pursued now? Run the full AI Learning Parliament process using only internal knowledge base sources.\n",
+    "speaker_decision": "# AI Learning Parliament Decision\n\nEvidence Coverage: Complete\n\nParliament Outcome\n\nSupport: 5\n\nConditional Support: 0\n\nOppose: 0\n\nFinal Decision: Start Now\n\nDecision Confidence: High\n\nCritic Impact:\n\nInitial Outcome: All stakeholders supported immediate pursuit of AI-102.\nCritic Verdict: Proceed\nFinal Outcome: Start Now\n\nReason:\n\n1. All stakeholder groups unanimously support pursuing AI-102, citing strong alignment with role goals, readiness, and capacity.\n2. Stakeholder evidence is consistent, well-grounded, and covers all required dimensions with no major contradictions or risks.\n3. The Critic confirms the evidence base is robust and recommends proceeding without reservations.\n\nRecommended Plan: ai102-medium-8h\n\nSources:\n\n* manager-goals-ai-delivery.md\n* capacity-framework.md\n* certification-role-mapping.md\n* learning-plans.md\n\nHuman Approval Required:\n\nReply APPROVE to generate the approved learning plan.\n\nReply REQUEST_CHANGES to revise the recommendation."
+  },
+  "result": {
+    "started_at": "2026-06-14T22:23:01.258658",
+    "finished_at": "2026-06-14T22:23:17.838735",
+    "stakeholders": {
+      "Manager-Agent": "Position: Support\n\nConfidence: 98/100\n\nOne Evidence: AI-102 directly supports AI solution delivery acceleration and internal AI engineering capability, with sufficient capacity and no operational risk at current workload.\n\nSources:\n\n* manager-goals-ai-delivery.md\n* capacity-framework.md",
+      "Career-Growth-Agent": "Position: Support  \nConfidence: 100/100  \nOne Evidence: AI-102 aligns highly with AI Transformation Lead, supporting practical AI solution understanding and delivery credibility.  \nSources:  \n* career-growth-framework.md  \n* certification-role-mapping.md",
+      "Readiness-Agent": "Position: Support\n\nConfidence: 97/100\n\nOne Evidence: Practice score is 82%, above the AI-102 target readiness score of 80%; all key topics are at or near target.\n\nSources:\n\n* assessment-framework.md\n* ai102-overview.md",
+      "Capacity-Agent": "Position: Support\n\nConfidence: 95/100\n\nOne Evidence: Study capacity is moderate (8 hours/week) and meeting load is low (10 hours/week), supporting feasible preparation for AI-102.\n\nSources:\n\n* capacity-framework.md",
+      "Future-Skills-Agent": "Position: Support  \nConfidence: 100/100  \nOne Evidence: AI-102 develops Azure AI implementation skills, AI solution design capability and responsible AI understanding, supporting future AI engineering and transformation roles.  \nSources:  \n* future-skills-analysis.md  \n* certification-role-mapping.md"
+    },
+    "critic": "Critic Verdict: Proceed\n\nConfidence: 98/100\n\nOne Finding: Stakeholder evidence is consistent, well-grounded, and covers readiness, capacity, alignment, and future skills with no major contradictions or risks; recommendation to pursue AI-102 is strongly supported.\n\nSources:\n\n* capacity-framework.md\n* certification-role-mapping.md",
+    "speaker": "# AI Learning Parliament Decision\n\nEvidence Coverage: Complete\n\nParliament Outcome\n\nSupport: 5\n\nConditional Support: 0\n\nOppose: 0\n\nFinal Decision: Start Now\n\nDecision Confidence: High\n\nCritic Impact:\n\nInitial Outcome: All stakeholders supported immediate pursuit of AI-102.\nCritic Verdict: Proceed\nFinal Outcome: Start Now\n\nReason:\n\n1. All stakeholder groups unanimously support pursuing AI-102, citing strong alignment with role goals, readiness, and capacity.\n2. Stakeholder evidence is consistent, well-grounded, and covers all required dimensions with no major contradictions or risks.\n3. The Critic confirms the evidence base is robust and recommends proceeding without reservations.\n\nRecommended Plan: ai102-medium-8h\n\nSources:\n\n* manager-goals-ai-delivery.md\n* capacity-framework.md\n* certification-role-mapping.md\n* learning-plans.md\n\nHuman Approval Required:\n\nReply APPROVE to generate the approved learning plan.\n\nReply REQUEST_CHANGES to revise the recommendation."
+  },
+  "created_by": [
+    "Gonçalo Pedro",
+    "André Collares Rodrigues"
+  ]
+}

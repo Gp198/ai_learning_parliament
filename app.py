@@ -9,6 +9,7 @@ from frontend.pages.dashboard import candidate_form
 from services.workflow_service import run_parliament
 from services.blob_kb_service import list_kb_files
 from services.audit_service import save_audit_record
+from services.approval_service import build_approved_learning_plan
 
 st.set_page_config(page_title="AI Learning Parliament", page_icon="🏛️", layout="wide")
 load_styles()
@@ -50,6 +51,7 @@ with info_col:
     <span class="status-ribbon">Blob KB</span>
     <span class="status-ribbon">Parallel Agents</span>
     <span class="status-ribbon">Human Approval</span>
+    <span class="status-ribbon">Approved Plan</span>
     """, unsafe_allow_html=True)
 
 if run_clicked:
@@ -58,6 +60,7 @@ if run_clicked:
         result = run_parliament(user_context)
         st.session_state["parliament_result"] = result
         st.session_state["candidate_context"] = user_context
+        st.session_state["approved_plan"] = None
 
 result = st.session_state.get("parliament_result")
 
@@ -120,13 +123,16 @@ if result:
 
     with left:
         if st.button("APPROVE", type="primary", use_container_width=True):
+            approved_plan = build_approved_learning_plan(st.session_state.get("candidate_context", ""), result["speaker"])
             audit_path = save_audit_record({
                 "status": "APPROVED",
-                "candidate": st.session_state.get("candidate_context"),
+                "approved_plan": approved_plan,
                 "result": result,
                 "created_by": ["Gonçalo Pedro", "André Collares Rodrigues"],
             })
-            st.success(f"Approved learning plan. Audit saved: {audit_path}")
+            approved_plan["audit_record"] = str(audit_path)
+            st.session_state["approved_plan"] = approved_plan
+            st.success("Approved learning plan generated successfully.")
 
     with right:
         if st.button("REQUEST_CHANGES", use_container_width=True):
@@ -139,6 +145,31 @@ if result:
             st.warning(f"Changes requested. Audit saved: {audit_path}")
 
     st.markdown('</div>', unsafe_allow_html=True)
+
+approved_plan = st.session_state.get("approved_plan")
+
+if approved_plan:
+    section_header("📘", "Approved Learning Plan")
+
+    st.markdown(
+        f"""
+        <div class="decision-panel">
+            <h2>Approved Learning Plan</h2>
+            <p><b>Approval Status:</b> {approved_plan["approval_status"]}</p>
+            <p><b>Final Decision:</b> {approved_plan["final_decision"]}</p>
+            <p><b>Decision Confidence:</b> {approved_plan["decision_confidence"]}</p>
+            <p><b>Recommended Plan:</b> <code>{approved_plan["recommended_plan"]}</code></p>
+            <p><b>Approved By:</b> {approved_plan["approved_by"]}</p>
+            <p><b>Created By:</b> Gonçalo Pedro and André Collares Rodrigues</p>
+            <p><b>Approved At UTC:</b> {approved_plan["approved_at_utc"]}</p>
+            <p><b>Audit Record:</b> <code>{approved_plan.get("audit_record", "Not saved")}</code></p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    with st.expander("View Approved Plan JSON", expanded=False):
+        st.json(approved_plan)
 
 st.markdown("""
 <div class="footer">
